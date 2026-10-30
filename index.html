@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#02050b">
+<meta name="description" content="An interactive Solar System at true relative sizes, controlled with your hands and voice, with an AI space guide.">
+<title>ORBIT · Solar System Explorer</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }</script>
+<script>
+  // Text in three languages; only the chosen one is shown · 三种语言，只显示所选语言 · Tres idiomas
+  // bi(english, chinese, spanish?) — Spanish defaults to the dictionary in js/i18n.js.
+  window.bi = (en, zh, es) => {
+    const e = t => String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const sp = es ?? (window.esText ? window.esText(en) : en);
+    return '<span class="en" lang="en">' + e(en) + '</span><span class="zh" lang="zh-CN">' + e(zh) + '</span><span class="es" lang="es">' + e(sp) + '</span>';
+  };
+  (() => { let l = null; try { l = localStorage.getItem('orbit-lang'); } catch {} const n = (navigator.language || 'en').toLowerCase();
+    l = ['en', 'zh', 'es'].includes(l) ? l : n.startsWith('zh') ? 'zh' : n.startsWith('es') ? 'es' : 'en';
+    document.documentElement.dataset.lang = l; document.documentElement.lang = l === 'zh' ? 'zh-CN' : l; })();
+</script>
+</head>
+<body>
+<header>
+  <div class="logo">◎ ORBIT<small><span class="en" lang="en">SOLAR SYSTEM / INTERACTIVE ATLAS</span><span class="zh" lang="zh-CN">太阳系 / 交互探索图鉴</span><span class="es" lang="es">SISTEMA SOLAR / ATLAS INTERACTIVO</span></small></div>
+  <div class="headbuttons">
+    <select id="language" aria-label="Language / 语言 / Idioma"><option value="en">English</option><option value="zh">中文</option><option value="es">Español</option></select>
+    <button id="home"><span class="en" lang="en">↖ Solar System</span><span class="zh" lang="zh-CN">↖ 太阳系总览</span><span class="es" lang="es">↖ Sistema solar</span></button>
+    <button id="lineup"><span class="en" lang="en">Compare Sizes</span><span class="zh" lang="zh-CN">大小对比</span><span class="es" lang="es">Comparar tamaños</span></button>
+    <button id="pause"><span class="en" lang="en">Pause Orbits</span><span class="zh" lang="zh-CN">暂停公转</span><span class="es" lang="es">Pausar órbitas</span></button>
+    <button id="cam" class="primary"><span class="en" lang="en">Enable Gestures</span><span class="zh" lang="zh-CN">启用手势</span><span class="es" lang="es">Activar gestos</span></button>
+    <button id="talk" class="primary"><span class="en" lang="en">🎙 Talk</span><span class="zh" lang="zh-CN">🎙 语音提问</span><span class="es" lang="es">🎙 Hablar</span></button>
+  </div>
+</header>
+
+<div class="intro"><div class="eyebrow"><span class="en" lang="en">OUR COSMIC NEIGHBOURHOOD</span><span class="zh" lang="zh-CN">我们的宇宙邻里</span><span class="es" lang="es">NUESTRO VECINDARIO CÓSMICO</span></div><h1 id="headline"></h1><p id="subtitle"></p></div>
+<aside id="info" class="panel hidden"></aside>
+<nav class="nav" id="nav" aria-label="Select a body / 选择天体 / Elige un astro"></nav>
+<div class="hint">
+  <span class="en" lang="en">Drag to rotate · Scroll / pinch to zoom · ← → next · L compare sizes · Esc back · Sizes to scale, distances compressed</span><span class="zh" lang="zh-CN">拖动旋转 · 滚轮 / 双指缩放 · ← → 切换 · L 大小对比 · Esc 返回 · 大小按真实比例，距离已压缩</span><span class="es" lang="es">Arrastra para girar · Rueda / pellizco para zoom · ← → siguiente · L comparar tamaños · Esc volver · Tamaños a escala, distancias comprimidas</span>
+  <span class="credit"><span class="en" lang="en">Surface maps: Solar System Scope (CC BY 4.0) · three.js examples</span><span class="zh" lang="zh-CN">星球贴图：Solar System Scope（CC BY 4.0）· three.js 示例</span><span class="es" lang="es">Mapas de superficie: Solar System Scope (CC BY 4.0) · ejemplos de three.js</span></span>
+  <a class="classic" href="particle-garden.html"><span class="en" lang="en">✦ Particle Garden version</span><span class="zh" lang="zh-CN">✦ 粒子花园版本</span><span class="es" lang="es">✦ Versión Jardín de partículas</span></a>
+</div>
+
+<div class="camera hidden" id="camera">
+  <div class="camview"><video id="video" autoplay playsinline muted></video><canvas id="handOverlay"></canvas><span class="fps" id="handFps"></span></div>
+  <div class="gpill" id="gpill"></div>
+  <label class="sens"><span><span class="en">Hand sensitivity</span><span class="zh">手势灵敏度</span><span class="es">Sensibilidad de la mano</span></span><input id="sensitivity" type="range" min="1" max="5" step="1" value="3" aria-label="Hand sensitivity / 手势灵敏度 / Sensibilidad"><b id="sensVal">3</b></label>
+  <ul class="guide">
+    <li><b>☝</b><span class="en">Point · aim, hold still to open · look around</span><span class="zh">指向 · 瞄准，停留即可打开 · 旋转视角</span><span class="es">Apuntar · apunta y espera para abrir · mirar alrededor</span></li>
+    <li><b>🤏</b><span class="en">Pinch · open · pinch + up/down to zoom</span><span class="zh">捏合 · 打开 · 捏住上下移动缩放</span><span class="es">Pellizcar · abrir · pellizca y sube/baja para zoom</span></li>
+    <li><b>✋</b><span class="en">Open palm · turn / scatter particles</span><span class="zh">张手 · 旋转 / 粒子扩散</span><span class="es">Palma abierta · girar / dispersar partículas</span></li>
+    <li><b>✊</b><span class="en">Hold fist · go back</span><span class="zh">保持握拳 · 返回</span><span class="es">Mantén el puño · volver</span></li>
+    <li><b>✌</b><span class="en">Victory · talk to Stelar</span><span class="zh">剪刀手 · 和 Stelar 对话</span><span class="es">Victoria · hablar con Stelar</span></li>
+  </ul>
+</div>
+<div id="handCursor" class="hand-cursor hidden"><i></i></div>
+<div class="status" id="status" role="status"></div>
+<div id="error"></div>
+
+<button class="chatbtn" id="chatBtn" aria-label="Ask Stelar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01" stroke-linecap="round" stroke-width="2.4"/></svg><span><span class="en" lang="en">Ask Stelar</span><span class="zh" lang="zh-CN">问问 Stelar</span><span class="es" lang="es">Pregunta a Stelar</span></span></button>
+<section class="chatpanel" id="chatPanel" aria-live="polite">
+  <header class="chathead">
+    <div><div class="chattitle"><span class="en" lang="en">Ask Stelar · AI space guide</span><span class="zh" lang="zh-CN">问问 Stelar · AI 太空向导</span><span class="es" lang="es">Pregunta a Stelar · guía espacial con IA</span></div><div class="chatctx" id="chatCtx"></div></div>
+    <div class="chattools"><select id="chatLang" aria-label="Voice language / 语音语言 / Idioma de voz"></select><button id="chatSpeak" class="icon" aria-pressed="false" title="Read answers aloud / 朗读回答 / Leer respuestas">🔊</button><button id="chatClose" class="icon" aria-label="Close">×</button></div>
+  </header>
+  <div class="chatlog" id="chatLog"></div>
+  <div class="chatsugg" id="chatSugg"></div>
+  <form class="chatform" id="chatForm">
+    <button type="button" id="chatMic" class="mic" aria-pressed="false" title="Talk / 语音输入 / Hablar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+    <input id="chatInput" maxlength="500" autocomplete="off" aria-label="Question">
+    <button id="chatSend" type="submit" aria-label="Send">➤</button>
+  </form>
+</section>
+
+<script type="module" src="js/main.js"></script>
+<script>
+  // Opened by double-clicking? Browsers block the js/ files then. · 直接双击打开时浏览器会拦截 js 文件
+  if (location.protocol === 'file:' && !document.querySelector('script[type=module]:not([src])')) {
+    addEventListener('DOMContentLoaded', () => { const el = document.querySelector('#error'); el.style.display = 'block'; el.innerHTML = window.bi('This page was opened as a file, so the browser blocked its code. Either open orbit-standalone.html instead (double-click works), or run "npm start" in this folder and go to http://localhost:8000.', '此页面是以文件方式打开的，浏览器阻止了它的代码。请改为打开 orbit-standalone.html（可直接双击），或在本文件夹运行 "npm start" 后访问 http://localhost:8000。', 'Esta página se abrió como archivo y el navegador bloqueó su código. Abre orbit-standalone.html (funciona con doble clic) o ejecuta "npm start" en esta carpeta y ve a http://localhost:8000.'); });
+  }
+  setTimeout(() => { if (!window.SolarAtlas) { const el = document.querySelector('#error'); el.style.display = 'block'; el.innerHTML = window.bi('The 3D engine has not loaded. Open the page through a local server (npm start or Live Server) and check access to cdn.jsdelivr.net.', '3D 引擎尚未加载。请通过本地服务器（npm start 或 Live Server）打开，并检查能否访问 cdn.jsdelivr.net。', 'El motor 3D no se ha cargado. Abre la página con un servidor local (npm start o Live Server) y comprueba el acceso a cdn.jsdelivr.net.'); } }, 20000);
+  addEventListener('error', e => { if (!e.message || e.message.includes('Script error')) return; console.error(e.message); const el = document.querySelector('#error'); if (el && !window.SolarAtlas) { el.style.display = 'block'; el.innerHTML = window.bi('A problem occurred while starting the page: ' + e.message, '页面启动时出现问题：' + e.message, 'Hubo un problema al iniciar la página: ' + e.message); } });
+</script>
+</body>
+</html>

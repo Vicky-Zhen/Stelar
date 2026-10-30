@@ -1,0 +1,9 @@
+# Secrets: never commit the API key
+.env
+.env.*
+!.env.example
+
+# Tooling
+.vercel
+node_modules
+.DS_Store

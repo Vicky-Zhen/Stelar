@@ -9,8 +9,28 @@
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:Manrope,'Microsoft YaHei',sans-serif}body:before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% 45%,#18213a 0%,#0b1020 42%,#080b14 76%);pointer-events:none}#stage{position:fixed;inset:0}canvas{display:block;width:100%;height:100%}
 .topbar{position:fixed;top:0;left:0;right:0;height:76px;padding:0 30px;display:flex;align-items:center;justify-content:space-between;z-index:3;background:linear-gradient(#080b14c9,transparent)}.brand{display:flex;align-items:center;gap:12px}.mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#9daaff,#7f62ce);display:grid;place-items:center;box-shadow:0 0 24px #8e9dff50}.mark svg{width:19px}.brand-title{font-size:13px;font-weight:700;letter-spacing:.18em}.brand-sub{font:9px 'DM Mono',monospace;color:#79839b;letter-spacing:.16em;margin-top:4px}.righttop{display:flex;align-items:center;gap:10px}.live{display:flex;align-items:center;gap:8px;color:#9ea8ba;font:10px 'DM Mono',monospace;letter-spacing:.06em;padding:9px 12px;border:1px solid var(--line);border-radius:30px;background:#10162599}.dot{height:6px;width:6px;border-radius:50%;background:#667087}.dot.on{background:#62e6b4;box-shadow:0 0 10px #62e6b4}.iconbtn{height:38px;width:38px;display:grid;place-items:center;background:#121827cc;border:1px solid var(--line);border-radius:12px;color:#cbd1df;cursor:pointer}.iconbtn:hover,.btn:hover{border-color:#8290e4;color:white}.iconbtn svg{width:17px;height:17px}
 .leftpanel{position:fixed;top:50%;left:26px;transform:translateY(-50%);width:228px;padding:18px;border-radius:18px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(18px);z-index:2;box-shadow:0 18px 70px #0004}.eyebrow{font:9px 'DM Mono',monospace;letter-spacing:.17em;text-transform:uppercase;color:#8490a9;margin-bottom:13px}.modelgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.model{background:#ffffff08;border:1px solid transparent;border-radius:12px;padding:10px 7px;color:#aab2c2;text-align:center;cursor:pointer;transition:.2s;font:11px Manrope,sans-serif}.model:hover{background:#ffffff10;color:white}.model.active{background:#929fff1a;border-color:#9ba7ff88;color:#dfe3ff;box-shadow:inset 0 0 20px #a0aaff0d}.model .emoji{font-size:19px;display:block;margin-bottom:6px;filter:saturate(.82)}.sep{height:1px;background:var(--line);margin:17px 0}.row{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}.row label{font-size:11px;color:#c3cada}.value{font:10px 'DM Mono',monospace;color:#8793aa}.colors{display:flex;align-items:center;gap:10px}.colors input[type=color]{appearance:none;border:0;background:none;padding:0;width:32px;height:32px;cursor:pointer}.colors input::-webkit-color-swatch{border:1px solid #ffffff55;border-radius:10px}.colors span{font-size:10px;color:#98a2b5}.slider{width:100%;height:3px;appearance:none;background:#30394b;border-radius:4px;outline:none}.slider::-webkit-slider-thumb{appearance:none;width:12px;height:12px;border-radius:50%;background:#bac3ff;border:2px solid #131a29;box-shadow:0 0 0 1px #bbc4ff;cursor:pointer}.smallnote{font-size:9px;color:#6f7b91;line-height:1.6;margin-top:11px}
-.rightpanel{position:fixed;right:26px;top:50%;transform:translateY(-50%);width:205px;z-index:2}.camera{border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden;backdrop-filter:blur(14px);box-shadow:0 18px 70px #0004}.camhead{padding:12px 13px;display:flex;justify-content:space-between;align-items:center;font:9px 'DM Mono',monospace;color:#aab3c3;letter-spacing:.1em}.camstate{color:#6e7890;font-size:8px}.preview{height:130px;background:#101521;position:relative;overflow:hidden}.preview video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);opacity:.64}.preview:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 65%,#0d1220)}#camPlaceholder{position:absolute;inset:0;display:grid;place-items:center;color:#768198;font-size:10px}.camcontrols{padding:11px}.btn{width:100%;border-radius:10px;padding:10px 8px;color:#e3e7f3;background:#a1aaff1a;border:1px solid #9ba7ff55;font:11px Manrope,sans-serif;cursor:pointer}.gesture{margin-top:10px;padding:11px 12px;border:1px solid var(--line);border-radius:14px;background:var(--panel);backdrop-filter:blur(14px)}.gesturetitle{font:8px 'DM Mono',monospace;letter-spacing:.12em;color:#78849b;margin-bottom:8px}.gestureline{font-size:10px;color:#b5bdcc;display:flex;gap:8px;line-height:1.6}.gestureline b{font-weight:500;color:#e0e4ef;min-width:39px}.bottom{position:fixed;bottom:23px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:8px;padding:9px 15px;border:1px solid var(--line);border-radius:30px;background:#0d1320bd;backdrop-filter:blur(14px);color:#8792a8;font:9px 'DM Mono',monospace;white-space:nowrap}.key{border:1px solid #ffffff20;border-radius:5px;padding:2px 5px;color:#c5cada}.titlefloat{position:fixed;left:50%;top:18%;transform:translateX(-50%);text-align:center;pointer-events:none;z-index:1}.titlefloat h1{font-weight:500;font-size:clamp(21px,3vw,35px);letter-spacing:.15em;margin:0;color:#e8ebfa;text-shadow:0 2px 24px #0008}.titlefloat p{font:9px 'DM Mono',monospace;letter-spacing:.22em;color:#78849c;margin:10px 0}.toast{position:fixed;bottom:76px;left:50%;transform:translate(-50%,10px);opacity:0;padding:9px 14px;border:1px solid var(--line);border-radius:20px;background:#151c2acc;color:#d7dbea;font-size:11px;transition:.25s;z-index:8;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:760px){.topbar{padding:0 15px;height:62px}.brand-sub{display:none}.leftpanel{left:10px;top:auto;bottom:71px;transform:none;width:min(220px,58vw);padding:12px}.modelgrid{gap:5px}.model{padding:7px 4px;font-size:10px}.model .emoji{font-size:16px;margin-bottom:3px}.sep{margin:10px 0}.rightpanel{right:10px;top:74px;transform:none;width:145px}.preview{height:90px}.gesture{display:none}.titlefloat{top:15%}.bottom{bottom:16px;font-size:8px}.smallnote{display:none}}
+.rightpanel{position:fixed;right:26px;top:50%;transform:translateY(-50%);width:220px;max-height:calc(100vh - 170px);overflow-y:auto;scrollbar-width:none;z-index:2}.rightpanel::-webkit-scrollbar{display:none}.camera{border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden;backdrop-filter:blur(14px);box-shadow:0 18px 70px #0004}.camhead{padding:12px 13px;display:flex;justify-content:space-between;align-items:center;font:9px 'DM Mono',monospace;color:#aab3c3;letter-spacing:.1em}.camstate{color:#6e7890;font-size:8px}.preview{height:130px;background:#101521;position:relative;overflow:hidden}.preview video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);opacity:.64}.preview:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 65%,#0d1220)}#camPlaceholder{position:absolute;inset:0;display:grid;place-items:center;color:#768198;font-size:10px}.camcontrols{padding:11px}.btn{width:100%;border-radius:10px;padding:10px 8px;color:#e3e7f3;background:#a1aaff1a;border:1px solid #9ba7ff55;font:11px Manrope,sans-serif;cursor:pointer}.gesture{margin-top:10px;padding:11px 12px;border:1px solid var(--line);border-radius:14px;background:var(--panel);backdrop-filter:blur(14px)}.gesturetitle{font:8px 'DM Mono',monospace;letter-spacing:.12em;color:#78849b;margin-bottom:8px}.gestureline{font-size:10px;color:#b5bdcc;display:flex;gap:8px;line-height:1.6}.gestureline b{font-weight:500;color:#e0e4ef;min-width:39px}.bottom{position:fixed;bottom:23px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:8px;padding:9px 15px;border:1px solid var(--line);border-radius:30px;background:#0d1320bd;backdrop-filter:blur(14px);color:#8792a8;font:9px 'DM Mono',monospace;white-space:nowrap}.key{border:1px solid #ffffff20;border-radius:5px;padding:2px 5px;color:#c5cada}.titlefloat{position:fixed;left:50%;top:18%;transform:translateX(-50%);text-align:center;pointer-events:none;z-index:1}.titlefloat h1{font-weight:500;font-size:clamp(21px,3vw,35px);letter-spacing:.15em;margin:0;color:#e8ebfa;text-shadow:0 2px 24px #0008}.titlefloat p{font:9px 'DM Mono',monospace;letter-spacing:.22em;color:#78849c;margin:10px 0}.toast{position:fixed;bottom:76px;left:50%;transform:translate(-50%,10px);opacity:0;padding:9px 14px;border:1px solid var(--line);border-radius:20px;background:#151c2acc;color:#d7dbea;font-size:11px;transition:.25s;z-index:8;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+/* ===== 行星信息卡 / Cartão de informação dos planetas ===== */
+.info{margin-top:10px;padding:12px 13px;border:1px solid var(--line);border-radius:14px;background:var(--panel);backdrop-filter:blur(14px);display:none}.info.show{display:block;animation:infoIn .35s ease}@keyframes infoIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.infohead{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.infoname{font-size:12px;font-weight:600;color:#e6e9f5;letter-spacing:.04em}.lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:8px;padding:2px}.lang button{border:0;background:none;color:#7f8aa1;font:9px 'DM Mono',monospace;padding:3px 6px;border-radius:6px;cursor:pointer}.lang button.on{background:#a1aaff22;color:#e3e7f3}
+.fact{display:flex;justify-content:space-between;gap:10px;font-size:10px;line-height:1.5;padding:4px 0;border-bottom:1px dashed #ffffff0f}.fact:last-child{border-bottom:0}.fact span{color:#8d97ab;white-space:nowrap}.fact b{font-weight:500;color:#dfe3ee;text-align:right}
+.infonote{font-size:9.5px;color:#a7b0c2;line-height:1.65;margin-top:9px;padding-top:9px;border-top:1px solid var(--line)}.linkbtn{margin-top:8px;background:none;border:0;color:#aab4ff;font:10px Manrope,sans-serif;cursor:pointer;padding:0}.linkbtn:hover{color:#fff}
+@media(max-width:760px){.topbar{padding:0 15px;height:62px}.brand-sub{display:none}.leftpanel{left:10px;top:auto;bottom:71px;transform:none;width:min(220px,58vw);padding:12px}.modelgrid{gap:5px}.model{padding:7px 4px;font-size:10px}.model .emoji{font-size:16px;margin-bottom:3px}.sep{margin:10px 0}.rightpanel{right:10px;top:74px;transform:none;width:165px;max-height:calc(100vh - 150px)}.preview{height:90px}.gesture{display:none}.titlefloat{top:15%}.bottom{bottom:16px;font-size:8px}.smallnote{display:none}.info{padding:9px 10px}.fact{font-size:9px}.infonote{display:none}}
+.model.wide{grid-column:span 2;display:flex;align-items:center;justify-content:center;gap:8px}.model.wide .emoji{display:inline;margin:0}
+/* ===== 太阳系行星导航条 / Barra de planetas do Sistema Solar ===== */
+.planetbar{position:fixed;bottom:66px;left:50%;transform:translateX(-50%);z-index:2;display:none;gap:4px;padding:5px;border:1px solid var(--line);border-radius:30px;background:#0d1320d0;backdrop-filter:blur(14px);max-width:calc(100vw - 32px);overflow-x:auto;scrollbar-width:none}.planetbar.show{display:flex}.planetbar::-webkit-scrollbar{display:none}
+.chip{display:flex;align-items:center;gap:6px;border:1px solid transparent;background:none;color:#9aa4b8;font:10px Manrope,sans-serif;padding:6px 10px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:.2s}.chip i{width:8px;height:8px;border-radius:50%}.chip:hover{color:#fff}.chip.on{background:#a1aaff1f;border-color:#9ba7ff77;color:#e8ebfa}
+@media(max-width:760px){.planetbar{bottom:auto;top:66px;left:10px;right:185px;transform:none;max-width:none}.chip{padding:5px 8px;font-size:9px}}
+.chatbtn{position:fixed;right:26px;bottom:20px;z-index:4;display:flex;align-items:center;gap:8px;padding:10px 15px;border-radius:24px;border:1px solid #9ba7ff66;background:linear-gradient(135deg,#8e9dffd9,#7f62ced9);color:#fff;font:600 11px Manrope,sans-serif;letter-spacing:.03em;cursor:pointer;box-shadow:0 8px 30px #7f62ce55;transition:.2s}.chatbtn:hover{transform:translateY(-1px);box-shadow:0 10px 36px #8e9dff77}.chatbtn svg{width:15px;height:15px}
+/* ===== AI 太空向导 / Guia espacial com IA ===== */
+.chatpanel{position:fixed;right:258px;bottom:112px;z-index:5;width:310px;height:min(460px,calc(100vh - 200px));display:none;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:rgba(13,18,31,.9);backdrop-filter:blur(18px);box-shadow:0 20px 70px #0007;overflow:hidden}.chatpanel.show{display:flex;animation:infoIn .3s ease}
+.chathead{display:flex;justify-content:space-between;align-items:flex-start;padding:13px 14px 11px;border-bottom:1px solid var(--line)}.chattitle{font-size:12px;font-weight:600;color:#e6e9f5}.chatctx{font:9px 'DM Mono',monospace;letter-spacing:.08em;color:#8490a9;margin-top:4px;text-transform:uppercase}.chatclose{background:none;border:0;color:#8d97ab;font-size:20px;line-height:1;cursor:pointer;padding:0 2px}.chatclose:hover{color:#fff}
+.chatlog{flex:1;overflow-y:auto;padding:12px 12px 4px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin}.msg{max-width:88%;padding:8px 11px;border-radius:13px;font-size:11.5px;line-height:1.55;white-space:pre-wrap;word-wrap:break-word}.msg.bot{align-self:flex-start;background:#ffffff0d;color:#dfe3ee;border-bottom-left-radius:4px}.msg.me{align-self:flex-end;background:#8e9dff33;color:#eef0fb;border-bottom-right-radius:4px}.msg.err{align-self:center;background:none;color:#f0a8a8;font-size:10.5px;text-align:center}.msg.note{align-self:center;background:none;color:#78849b;font:9px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;padding:4px}
+.typing{display:inline-flex;gap:4px}.typing i{width:5px;height:5px;border-radius:50%;background:#9aa4b8;animation:blink 1.2s infinite}.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.chatsugg{display:flex;flex-wrap:wrap;gap:5px;padding:6px 12px}.chatsugg button{border:1px solid var(--line);background:#ffffff06;color:#aab4ff;font:10px Manrope,sans-serif;padding:5px 9px;border-radius:14px;cursor:pointer}.chatsugg button:hover{border-color:#8290e4;color:#fff}
+.chatform{display:flex;gap:6px;padding:10px 12px 12px;border-top:1px solid var(--line)}.chatform input{flex:1;min-width:0;background:#ffffff0a;border:1px solid var(--line);border-radius:11px;padding:9px 11px;color:var(--text);font:12px Manrope,sans-serif;outline:none}.chatform input:focus{border-color:#8290e4}.chatform button{width:36px;border-radius:11px;border:1px solid #9ba7ff55;background:#a1aaff22;color:#e3e7f3;cursor:pointer;font-size:13px}.chatform button:disabled{opacity:.4;cursor:default}
+@media(max-width:1100px){.chatpanel{right:26px;bottom:74px}}
+@media(max-width:760px){.chatbtn{right:10px;bottom:60px;padding:9px 12px}.chatbtn span{display:none}.chatpanel{left:10px;right:10px;bottom:10px;width:auto;height:62vh}}
 </style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"}}</script>
 </head>
@@ -18,38 +38,329 @@
 <header class="topbar"><div class="brand"><div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M12 2.8c1.7 3.4 1.7 5.3 0 7.2-1.7-1.9-1.7-3.8 0-7.2ZM21.2 12c-3.4 1.7-5.3 1.7-7.2 0 1.9-1.7 3.8-1.7 7.2 0ZM12 21.2c-1.7-3.4-1.7-5.3 0-7.2 1.7 1.9 1.7 3.8 0 7.2ZM2.8 12c3.4-1.7 5.3-1.7 7.2 0-1.9 1.7-3.8 1.7-7.2 0Z"/><circle cx="12" cy="12" r="2"/></svg></div><div><div class="brand-title">粒子花园</div><div class="brand-sub">GESTURE PARTICLE STUDIO</div></div></div><div class="righttop"><div class="live"><i id="liveDot" class="dot"></i><span id="liveText">待机中</span></div><button class="iconbtn" id="fullscreen" title="全屏" aria-label="全屏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3"/></svg></button></div></header>
 <div class="titlefloat"><h1 id="shapeTitle">绯色之心</h1><p id="shapeSub">HEART · 01</p></div>
 <aside class="leftpanel"><div class="eyebrow">01 / 选择形态</div><div class="modelgrid" id="modelGrid"></div><div class="sep"></div><div class="row"><label>粒子色彩</label><div class="value" id="hexLabel">#FF6688</div></div><div class="colors"><input id="colorPicker" type="color" value="#ff6688"><span>自定义色调</span></div><div style="margin-top:16px" class="row"><label>粒子密度</label><span class="value" id="densityVal">12,000</span></div><input class="slider" id="density" type="range" min="3000" max="22000" step="1000" value="12000"><div class="smallnote">拖动滑块调节粒子数量；手势会实时影响形态与动势。</div></aside>
-<aside class="rightpanel"><div class="camera"><div class="camhead"><span>手势追踪</span><span class="camstate" id="camState">未连接</span></div><div class="preview"><video id="video" autoplay playsinline muted></video><div id="camPlaceholder">摄像头预览</div></div><div class="camcontrols"><button class="btn" id="cameraBtn">启用摄像头</button></div></div><div class="gesture"><div class="gesturetitle">动作提示</div><div class="gestureline"><b>张开手掌</b><span>粒子扩散</span></div><div class="gestureline"><b>握紧手掌</b><span>粒子聚合</span></div><div class="gestureline"><b>伸出食指</b><span>左右摇摆旋转</span></div><div class="gestureline"><b>拇指食指</b><span>捏合控制远近</span></div></div></aside>
-<div class="bottom"><span>拖动旋转</span><span class="key">鼠标</span><span>·</span><span>滚轮缩放</span><span>·</span><span>按 <span class="key">F</span> 全屏</span></div><div class="toast" id="toast"></div>
+<aside class="rightpanel"><div class="camera"><div class="camhead"><span>手势追踪</span><span class="camstate" id="camState">未连接</span></div><div class="preview"><video id="video" autoplay playsinline muted></video><div id="camPlaceholder">摄像头预览</div></div><div class="camcontrols"><button class="btn" id="cameraBtn">启用摄像头</button></div></div><div class="gesture"><div class="gesturetitle">动作提示</div><div class="gestureline"><b>张开手掌</b><span>粒子扩散</span></div><div class="gestureline"><b>握紧手掌</b><span>粒子聚合</span></div><div class="gestureline"><b>伸出食指</b><span>左右摇摆旋转</span></div><div class="gestureline"><b>拇指食指</b><span>捏合控制远近</span></div></div>
+<!-- 行星信息卡 / Cartão de informação (só aparece em Júpiter e Saturno) -->
+<div class="info" id="infoCard"><div class="infohead"><span class="infoname" id="infoName"></span><div class="lang"><button data-lang="en" class="on">EN</button><button data-lang="pt">PT</button></div></div><div id="infoFacts"></div><div class="infonote" id="infoNote"></div><button class="linkbtn" id="naturalBtn">↺ Real colors</button></div>
+</aside>
+<div class="bottom"><span>拖动旋转</span><span class="key">鼠标</span><span>·</span><span>滚轮缩放</span><span>·</span><span>按 <span class="key">F</span> 全屏</span></div><div class="planetbar" id="planetBar"></div><button class="chatbtn" id="chatBtn" aria-label="Ask Stelar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01" stroke-linecap="round" stroke-width="2.4"/></svg><span id="chatBtnLabel">Ask Stelar</span></button>
+<section class="chatpanel" id="chatPanel" aria-live="polite"><header class="chathead"><div><div class="chattitle" id="chatTitle">Ask Stelar</div><div class="chatctx" id="chatCtx"></div></div><button class="chatclose" id="chatClose" aria-label="Close">×</button></header><div class="chatlog" id="chatLog"></div><div class="chatsugg" id="chatSugg"></div><form class="chatform" id="chatForm"><input id="chatInput" maxlength="500" autocomplete="off"><button id="chatSend" type="submit" aria-label="Send">➤</button></form></section>
+<div class="toast" id="toast"></div>
 <script type="module">
 import * as THREE from 'three';
-const COUNT=12000, TAU=Math.PI*2, models=[['heart','爱心','绯色之心','HEART · 01','💗'],['flower','花朵','晨光花语','BLOOM · 02','🌸'],['saturn','土星','环绕土星','SATURN · 03','🪐'],['fireworks','烟花','星火绽放','FIREWORKS · 04','🎆'],['earth','地球','蔚蓝星球','EARTH · 05','🌍'],['landscape','千里江山','千里江山','LANDSCAPE · 06','🏞️'],['epiphyllum','昙花','昙花一现','EPIPHYLLUM · 07','🌼']];
-const grid=document.querySelector('#modelGrid'), positions={}, scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.1,100);camera.position.set(0,0,9.5);const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.setClearColor(0,0);renderer.outputColorSpace=THREE.SRGBColorSpace;document.querySelector('#stage').appendChild(renderer.domElement);
+// COUNT 提升到 22000，让"粒子密度"滑块真正能到 22000；默认仍显示 12000，原有模型外观不变。
+// COUNT subiu para 22000 para o slider de densidade funcionar até ao fim; por defeito mostra 12000, como antes.
+const COUNT=22000, START=12000, TAU=Math.PI*2, DEG=Math.PI/180;
+const models=[['heart','爱心','绯色之心','HEART · 01','💗'],['flower','花朵','晨光花语','BLOOM · 02','🌸'],['saturn','土星','环绕土星','SATURN · 03','🪐'],['fireworks','烟花','星火绽放','FIREWORKS · 04','🎆'],['earth','地球','蔚蓝星球','EARTH · 05','🌍'],['landscape','千里江山','千里江山','LANDSCAPE · 06','🏞️'],['epiphyllum','昙花','昙花一现','EPIPHYLLUM · 07','🌼'],['jupiter','木星','巨神木星','JUPITER · 08','🟠'],['solar','太阳系 · Solar System','太阳系','SOLAR SYSTEM · 09','☀️']];
+
+/* ===================== 天体资料 / Dados dos astros ===================== */
+const INFO={
+ sun:{
+  en:{name:'Sun · 太阳',rows:[['Diameter','1,392,700 km · ~109 Earths'],['Mass','~333,000 Earths'],['Age','~4.6 billion years'],['Surface','~5,500 °C'],['Core','~15 million °C'],['Light to Earth','~8 min 20 s'],['Made of','~73% hydrogen · 25% helium']],
+      note:'A star, not a planet: it holds about 99.8% of all the mass in the Solar System. In this view, sizes and distances are compressed so that every planet fits on screen.'},
+  pt:{name:'Sol · 太阳',rows:[['Diâmetro','1 392 700 km · ~109 Terras'],['Massa','~333 000 Terras'],['Idade','~4,6 mil milhões de anos'],['Superfície','~5 500 °C'],['Núcleo','~15 milhões °C'],['Luz até à Terra','~8 min 20 s'],['Composição','~73% hidrogénio · 25% hélio']],
+      note:'Uma estrela, não um planeta: concentra cerca de 99,8% de toda a massa do Sistema Solar. Nesta vista, tamanhos e distâncias estão comprimidos para todos os planetas caberem no ecrã.'}
+ },
+ mercury:{
+  en:{name:'Mercury · 水星',rows:[['Diameter','4,879 km · ~0.38 Earth'],['From the Sun','~58 million km · 0.39 AU'],['One day','~176 Earth days'],['One year','88 Earth days'],['Moons','0'],['Temperature','−180 to 430 °C']],
+      note:'The smallest planet and the closest to the Sun. With almost no atmosphere to hold heat, its nights are freezing and its days are scorching.'},
+  pt:{name:'Mercúrio · 水星',rows:[['Diâmetro','4 879 km · ~0,38 Terra'],['Distância ao Sol','~58 milhões km · 0,39 UA'],['Um dia','~176 dias terrestres'],['Um ano','88 dias terrestres'],['Luas','0'],['Temperatura','−180 a 430 °C']],
+      note:'O planeta mais pequeno e o mais próximo do Sol. Quase sem atmosfera para guardar calor, as noites são geladas e os dias escaldantes.'}
+ },
+ venus:{
+  en:{name:'Venus · 金星',rows:[['Diameter','12,104 km · ~0.95 Earth'],['From the Sun','~108 million km · 0.72 AU'],['One spin','~243 Earth days'],['One year','~225 Earth days'],['Moons','0'],['Surface','~465 °C']],
+      note:'The hottest planet, even though Mercury is closer to the Sun: its thick carbon-dioxide atmosphere traps the heat. It spins backwards, and one spin takes longer than its year.'},
+  pt:{name:'Vénus · 金星',rows:[['Diâmetro','12 104 km · ~0,95 Terra'],['Distância ao Sol','~108 milhões km · 0,72 UA'],['Uma rotação','~243 dias terrestres'],['Um ano','~225 dias terrestres'],['Luas','0'],['Superfície','~465 °C']],
+      note:'O planeta mais quente, apesar de Mercúrio estar mais perto do Sol: a atmosfera espessa de dióxido de carbono retém o calor. Roda ao contrário, e uma rotação demora mais do que o seu ano.'}
+ },
+ earth:{
+  en:{name:'Earth · 地球',rows:[['Diameter','12,742 km'],['From the Sun','~150 million km · 1 AU'],['One day','24 h'],['One year','365.25 days'],['Moons','1'],['Surface water','~71%']],
+      note:'The only world known to host life. Its 23.4° tilt is what gives us the seasons.'},
+  pt:{name:'Terra · 地球',rows:[['Diâmetro','12 742 km'],['Distância ao Sol','~150 milhões km · 1 UA'],['Um dia','24 h'],['Um ano','365,25 dias'],['Luas','1'],['Água à superfície','~71%']],
+      note:'O único mundo conhecido com vida. A inclinação de 23,4° do eixo é o que nos dá as estações do ano.'}
+ },
+ mars:{
+  en:{name:'Mars · 火星',rows:[['Diameter','6,779 km · ~0.53 Earth'],['From the Sun','~228 million km · 1.52 AU'],['One day','24 h 37 min'],['One year','687 Earth days'],['Moons','2 · Phobos, Deimos'],['Average','~−60 °C']],
+      note:'Red because of iron oxide (rust) in its dust. It has Olympus Mons, the tallest volcano in the Solar System, about 2.5 times the height of Everest.'},
+  pt:{name:'Marte · 火星',rows:[['Diâmetro','6 779 km · ~0,53 Terra'],['Distância ao Sol','~228 milhões km · 1,52 UA'],['Um dia','24 h 37 min'],['Um ano','687 dias terrestres'],['Luas','2 · Fobos, Deimos'],['Média','~−60 °C']],
+      note:'É vermelho por causa do óxido de ferro (ferrugem) na poeira. Tem o Olympus Mons, o vulcão mais alto do Sistema Solar, cerca de 2,5 vezes a altura do Evereste.'}
+ },
+ jupiter:{
+  en:{name:'Jupiter · 木星',rows:[['Diameter','142,984 km · ~11 Earths'],['Mass','~318 Earths'],['From the Sun','~778 million km · 5.2 AU'],['One day','~9 h 56 min'],['One year','~11.9 Earth years'],['Moons','101 (as of 2026)'],['Made of','~90% hydrogen · 10% helium']],
+      note:'The largest planet in the Solar System. The Great Red Spot in the southern hemisphere is a storm wider than Earth, watched for almost two centuries. The four small particle clusters are the Galilean moons, discovered in 1610: Io, Europa, Ganymede and Callisto.'},
+  pt:{name:'Júpiter · 木星',rows:[['Diâmetro','142 984 km · ~11 Terras'],['Massa','~318 Terras'],['Distância ao Sol','~778 milhões km · 5,2 UA'],['Um dia','~9 h 56 min'],['Um ano','~11,9 anos terrestres'],['Luas','101 (em 2026)'],['Composição','~90% hidrogénio · 10% hélio']],
+      note:'O maior planeta do Sistema Solar. A Grande Mancha Vermelha, no hemisfério sul, é uma tempestade mais larga do que a Terra, observada há quase dois séculos. Os quatro pequenos grupos de partículas são as luas galileanas, descobertas em 1610: Io, Europa, Ganimedes e Calisto.'}
+ },
+ saturn:{
+  en:{name:'Saturn · 土星',rows:[['Diameter','120,536 km · ~9.4 Earths'],['Mass','~95 Earths'],['From the Sun','~1.43 billion km · 9.5 AU'],['One day','~10 h 33 min'],['One year','~29.4 Earth years'],['Moons','274 (confirmed 2025)'],['Density','0.69 g/cm³ · would float in water']],
+      note:'The rings stretch about 280,000 km across, yet most are only around 10 m thick, made of ice and rock. The dark gap in the rings is the Cassini Division, and the hexagon at the north pole is a real storm. The axis is tilted about 26.7°.'},
+  pt:{name:'Saturno · 土星',rows:[['Diâmetro','120 536 km · ~9,4 Terras'],['Massa','~95 Terras'],['Distância ao Sol','~1,43 mil milhões km · 9,5 UA'],['Um dia','~10 h 33 min'],['Um ano','~29,4 anos terrestres'],['Luas','274 (confirmadas em 2025)'],['Densidade','0,69 g/cm³ · flutuaria na água']],
+      note:'Os anéis estendem-se por cerca de 280 000 km, mas a maior parte tem só uns 10 m de espessura, feita de gelo e rocha. A faixa escura nos anéis é a Divisão de Cassini, e o hexágono no polo norte é uma tempestade real. O eixo está inclinado cerca de 26,7°.'}
+ },
+ uranus:{
+  en:{name:'Uranus · 天王星',rows:[['Diameter','51,118 km · ~4 Earths'],['Mass','~14.5 Earths'],['From the Sun','~2.9 billion km · 19.2 AU'],['One day','~17 h 14 min'],['One year','~84 Earth years'],['Moons','28 (+1 awaiting confirmation)'],['Tilt','~98°']],
+      note:'An ice giant that spins on its side, probably after a giant collision long ago, so each pole gets about 42 years of sunlight followed by 42 years of darkness. Its faint rings stand almost upright.'},
+  pt:{name:'Úrano · 天王星',rows:[['Diâmetro','51 118 km · ~4 Terras'],['Massa','~14,5 Terras'],['Distância ao Sol','~2,9 mil milhões km · 19,2 UA'],['Um dia','~17 h 14 min'],['Um ano','~84 anos terrestres'],['Luas','28 (+1 por confirmar)'],['Inclinação','~98°']],
+      note:'Um gigante de gelo que roda deitado, provavelmente depois de uma grande colisão há muito tempo. Cada polo tem cerca de 42 anos de luz seguidos de 42 anos de escuridão. Os anéis ténues ficam quase na vertical.'}
+ },
+ neptune:{
+  en:{name:'Neptune · 海王星',rows:[['Diameter','49,528 km · ~3.9 Earths'],['Mass','~17 Earths'],['From the Sun','~4.5 billion km · 30 AU'],['One day','~16 h 6 min'],['One year','~165 Earth years'],['Moons','16'],['Winds','up to ~2,000 km/h']],
+      note:'The farthest planet and the windiest. It was found in 1846 through mathematics before anyone had seen it, and its largest moon, Triton, orbits backwards.'},
+  pt:{name:'Neptuno · 海王星',rows:[['Diâmetro','49 528 km · ~3,9 Terras'],['Massa','~17 Terras'],['Distância ao Sol','~4,5 mil milhões km · 30 UA'],['Um dia','~16 h 6 min'],['Um ano','~165 anos terrestres'],['Luas','16'],['Ventos','até ~2 000 km/h']],
+      note:'O planeta mais distante e com mais vento. Foi descoberto em 1846 através da matemática antes de alguém o ver, e a sua maior lua, Tritão, orbita ao contrário.'}
+ }
+};
+
+const grid=document.querySelector('#modelGrid'), positions={}, palettes={}, scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.1,100);camera.position.set(0,0,9.5);const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.setClearColor(0,0);renderer.outputColorSpace=THREE.SRGBColorSpace;document.querySelector('#stage').appendChild(renderer.domElement);
 let active='heart',targetScale=1,gestureScale=1,zoom=1,rotX=0,rotY=0,drag=false,lastX=0,lastY=0,handX=.5,handY=.5,handSeen=0,oneFinger=false,spread=0;const group=new THREE.Group();scene.add(group);
 function rand(i,s=0){let x=Math.sin((i+1)*127.1+s*311.7)*43758.5453123;return x-Math.floor(x)}
-function buildModel(name){const a=new Float32Array(COUNT*3);for(let i=0;i<COUNT;i++){let x=0,y=0,z=0,u=rand(i,1),v=rand(i,2),w=rand(i,3);
+
+/* ===================== 工具函数 / Funções auxiliares ===================== */
+const C=h=>{const c=new THREE.Color(h);return [c.r,c.g,c.b]};
+const mix=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];
+const sc=(a,k)=>[a[0]*k,a[1]*k,a[2]*k];
+const cl=x=>Math.min(1,Math.max(0,x));
+const wrapPI=a=>((a+Math.PI)%TAU+TAU)%TAU-Math.PI;
+const FRONT=Math.PI/2; // 经度 π/2 朝向相机 / longitude virada para a câmara
+const P={x:0,y:0,z:0,c:null}; // 生成器输出 / saída dos geradores
+const onS=(lat,lon,r,f=1)=>{P.x=r*Math.cos(lat)*Math.cos(lon);P.y=r*Math.sin(lat)*f;P.z=r*Math.cos(lat)*Math.sin(lon)};
+const tiltX=a=>{const q=P.y*Math.cos(a)-P.z*Math.sin(a);P.z=P.y*Math.sin(a)+P.z*Math.cos(a);P.y=q};
+
+// 木星云带 / Faixas de Júpiter
+const J={EZ:C('#e9cfa6'),NEB:C('#9a6744'),SEB:C('#a36f49'),TZ:C('#efe0c4'),TB:C('#b88c66'),Z2:C('#e0cdb0'),B2:C('#a98564'),Z3:C('#cbb69b'),POLE:C('#8c8d95'),SPOT:C('#b03e24'),SPOT2:C('#dc8550'),HALO:C('#f4e6cc'),RING:C('#9b8a78')};
+function jupiterBand(lat){const a=Math.abs(lat);let c;
+ if(a<6)c=J.EZ;else if(lat>=6&&lat<17)c=J.NEB;else if(lat<=-6&&lat>-20)c=J.SEB;else if(a<27)c=J.TZ;else if(a<34)c=J.TB;else if(a<40)c=J.Z2;else if(a<46)c=J.B2;else if(a<58)c=J.Z3;else c=mix(J.Z3,J.POLE,Math.min(1,(a-58)/22));
+ return sc(c,.92+.1*Math.sin(lat*1.7))}
+// 土星云带 / Faixas de Saturno
+const S={EQ:C('#ecdcb0'),B1:C('#d8be88'),Z1:C('#e4cf9e'),B2:C('#c8a971'),Z2:C('#d7c292'),B3:C('#bfa678'),POLE:C('#8f9ba1'),HEX:C('#7d92a0'),HEXE:C('#eadcb0'),RC:C('#7d7262'),RB:C('#f0ddb6'),RCD:C('#5e5548'),RA:C('#cdb994'),RF:C('#d8cfc0')};
+function saturnBand(lat,lon){const a=Math.abs(lat);let c;
+ if(a<10)c=S.EQ;else if(a<20)c=S.B1;else if(a<28)c=S.Z1;else if(a<38)c=S.B2;else if(a<50)c=S.Z2;else if(a<62)c=S.B3;else c=mix(S.B3,S.POLE,Math.min(1,(a-62)/28));
+ if(lat>66){ // 北极六边形 / hexágono polar norte
+  const d=90-lat, seg=(((lon/DEG)%60)+60)%60-30, rHex=13/Math.cos(seg*DEG);
+  if(Math.abs(d-rHex)<.9)c=S.HEXE;else if(d<rHex)c=S.HEX}
+ return c}
+
+/* ===================== 土星 / SATURNO ===================== */
+function genSaturn(i,R){
+ const u=rand(i,1),v=rand(i,2),w=rand(i,3),p=rand(i,11);
+ if(p<.42){ // 行星本体（扁球）/ corpo do planeta (achatado)
+  const phi=Math.acos(2*u-1), lon=TAU*v, lat=Math.PI/2-phi;
+  onS(lat,lon,R*(1+(w-.5)*.014),.902);
+  P.c=sc(saturnBand(lat/DEG+.8*Math.sin(lon*7+lat*3),lon),.66);
+ }else{ // 光环 C / B / 卡西尼环缝 / A（含恩克环缝）/ F
+  let r0,r1,cc,k;
+  if(p<.50){r0=1.24;r1=1.53;cc=S.RC;k=.42}
+  else if(p<.79){r0=1.53;r1=1.95;cc=S.RB;k=.74}
+  else if(p<.805){r0=1.95;r1=2.03;cc=S.RCD;k=.26}
+  else if(p<.985){r0=2.03;r1=2.27;cc=S.RA;k=.6}
+  else{r0=2.32;r1=2.335;cc=S.RF;k=.42}
+  let rr=Math.sqrt(r0*r0+rand(i,12)*(r1*r1-r0*r0));
+  if(rr>2.205&&rr<2.222)rr+=(rand(i,13)<.5?-.018:.018); // 恩克环缝 / Divisão de Encke
+  const t=u*TAU;P.x=rr*R*Math.cos(t);P.z=rr*R*Math.sin(t);P.y=(w-.5)*.012;
+  k*=.86+.14*Math.sin(rr*70)+.07*Math.sin(rr*190);
+  P.c=sc(cc,k);
+ }
+}
+
+/* ===================== 木星 / JÚPITER =====================  mk: 卫星轨道压缩 / compressão das órbitas das luas */
+function genJupiter(i,R,mk){
+ const u=rand(i,1),v=rand(i,2),w=rand(i,3),p=rand(i,11), spotLat=-22*DEG, spotLon=FRONT-.35, sa=.22, sb=.11;
+ if(p<.88){ // 云层表面 / superfície de nuvens
+  const phi=Math.acos(2*u-1), lon=TAU*v, lat=Math.PI/2-phi;
+  onS(lat,lon,R*(1+(w-.5)*.012),.935);
+  const latN=lat/DEG+2.2*Math.sin(lon*5+lat*.2*57)+1.1*Math.sin(lon*13+lat*28); // 湍流边缘 / bordas turbulentas
+  let c=jupiterBand(latN);
+  const e=(wrapPI(lon-spotLon)/sa)**2+((lat-spotLat)/sb)**2;
+  if(e<1)c=mix(J.SPOT,J.SPOT2,Math.sqrt(e));else if(e<1.7)c=mix(J.HALO,c,(e-1)/.7);
+  P.c=sc(c,.62);
+ }else if(p<.92){ // 大红斑（额外粒子）/ Grande Mancha Vermelha (partículas extra)
+  const t=u*TAU, rr=Math.sqrt(v);
+  onS(spotLat+Math.sin(t)*rr*sb, spotLon+Math.cos(t)*rr*sa, R*1.006,.935);
+  P.c=sc(mix(J.SPOT,J.SPOT2,rr*(.85+.15*Math.sin(t*2+rr*9))),.62);
+ }else if(p<.945){ // 暗淡光环 / anel ténue
+  const rr=R*(1.72+w*.09), t=u*TAU;P.x=rr*Math.cos(t);P.z=rr*Math.sin(t);P.y=(v-.5)*.01;
+  P.c=sc(J.RING,.2);
+ }else{ // 伽利略卫星 / luas galileanas: Io, Europa, Ganimedes, Calisto
+  const moons=[[2.75,.4,.07,'#e8d36a'],[3.1,2.3,.06,'#ddd5c6'],[3.5,3.9,.095,'#a8998a'],[3.95,5.4,.088,'#7d6f61']];
+  const m=moons[Math.min(3,Math.floor((p-.945)/.055*4))], d=m[0]/1.4*R*mk;
+  const ph=Math.acos(2*v-1), th=TAU*w, rr=m[2]/1.4*R*(mk<1?1.25:1)*Math.cbrt(rand(i,12));
+  P.x=d*Math.cos(m[1])+rr*Math.sin(ph)*Math.cos(th);P.y=rr*Math.cos(ph);P.z=d*Math.sin(m[1])+rr*Math.sin(ph)*Math.sin(th);
+  P.c=sc(C(m[3]),.85);
+ }
+}
+
+/* ===================== 太阳与其他行星（简易版，队友可替换）=====================
+   Sol e restantes planetas — versões simples para as colegas substituírem pelas delas */
+const PC={sunA:C('#ff7a1f'),sunB:C('#ffd46b'),sunC:C('#ff9a3a'),merA:C('#6f6a66'),merB:C('#b8b0a6'),venA:C('#c69d5e'),venB:C('#f2deae'),ocean:C('#1d5aa8'),land:C('#4d7d3a'),desert:C('#b0935e'),ice:C('#eef3f8'),cloud:C('#f4f7fb'),marA:C('#b4502b'),marB:C('#da8452'),marD:C('#74361f'),uraA:C('#86c9d2'),uraB:C('#bfeaee'),uraR:C('#8aa7ad'),nepA:C('#2c4bbd'),nepB:C('#4f7de2'),nepD:C('#18245f'),nepW:C('#dfe8ff')};
+function genSun(i,R){const u=rand(i,1),v=rand(i,2),w=rand(i,3),lat=Math.asin(2*u-1),lon=TAU*v;
+ if(rand(i,22)<.82){onS(lat,lon,R*(1+(w-.5)*.02));const n=Math.sin(lon*23+Math.sin(lat*17)*2)*Math.sin(lat*19+lon*7);P.c=sc(mix(PC.sunA,PC.sunB,.5+.5*n),.42)}
+ else{const k=w*w;onS(lat,lon,R*(1.03+k*.4));P.c=sc(PC.sunC,.36*(1-k))} // 日冕 / coroa
+}
+function genRock(i,R,kind){const u=rand(i,1),v=rand(i,2),w=rand(i,3),q=rand(i,22),lat=Math.asin(2*u-1),lon=TAU*v,L=lat/DEG;let c,r=R*(1+(w-.5)*.02),g=.6;
+ if(kind==='mercury'){const n=Math.sin(lon*9+lat*4)*Math.sin(lat*11-lon*3)+.5*Math.sin(lon*21+lat*17);c=mix(PC.merA,PC.merB,cl(.5+.35*n));g=.62}
+ else if(kind==='venus'){const n=Math.sin(lat*6+Math.sin(lon*3)*1.5)+.4*Math.sin(lon*5+lat*2);c=mix(PC.venA,PC.venB,cl(.5+.3*n))}
+ else if(kind==='earth'){const cont=Math.sin(2.8*lon+Math.sin(4*lat))*Math.cos(3.2*lat)+.42*Math.sin(5.3*lon-2*lat); // 大陆公式沿用队友的地球 / mesma fórmula da Terra da colega
+  if(Math.abs(L)>68)c=PC.ice;else if(cont>.28)c=mix(PC.land,PC.desert,cl((cont-.28)*1.6));else c=PC.ocean;
+  if(q<.13){c=PC.cloud;r*=1.025}}
+ else if(kind==='mars'){const n=Math.sin(lon*3+Math.sin(lat*5))*Math.cos(lat*2.5)+.35*Math.sin(lon*7-lat*3);
+  c=Math.abs(L)>74?PC.ice:(n>.38?PC.marD:mix(PC.marA,PC.marB,.5+.5*Math.sin(lat*8+lon*4)));g=.62}
+ else if(kind==='uranus'){if(q<.1){const rr=R*(1.6+w*.38),t=TAU*v;P.x=rr*Math.cos(t);P.z=rr*Math.sin(t);P.y=(u-.5)*.006;P.c=sc(PC.uraR,.22);return}
+  c=mix(PC.uraA,PC.uraB,.5+.15*Math.sin(lat*10));g=.58}
+ else if(kind==='neptune'){c=mix(PC.nepA,PC.nepB,.5+.25*Math.sin(lat*7));const e=(wrapPI(lon-.6)/.3)**2+((lat+20*DEG)/.14)**2; // 大暗斑 / Grande Mancha Escura
+  if(e<1)c=PC.nepD;else if(L<-28&&L>-36&&Math.sin(lon*3)>.4&&q<.5)c=PC.nepW}
+ onS(lat,lon,r);P.c=sc(c,g)}
+
+/* ===================== 太阳系布局（尺寸与距离为压缩比例）=====================
+   Layout do Sistema Solar — tamanhos e distâncias comprimidos (não à escala real)
+   [id, 位置 x / posição x, 半径 / raio, 粒子比例 / fração de partículas, 倾角° / inclinação°, 自转 / rotação] */
+const BODIES=[['sun',0,2.0,.17,7.25,.04,'#ffc04d'],['mercury',3.4,.22,.035,0,.03,'#a9a29a'],['venus',4.5,.38,.05,0,-.02,'#e8cf98'],['earth',5.7,.4,.06,23.4,.25,'#3b7fd0'],['mars',6.85,.3,.045,25.2,.24,'#cf6a3c'],['jupiter',9.4,1.1,.21,3.1,.45,'#d9b38a'],['saturn',13.9,.95,.22,26.7,.4,'#e6d29e'],['uranus',17.6,.6,.1,97.8,-.28,'#9fdbe2'],['neptune',19.9,.58,.1,28.3,.3,'#4a6fe0']];
+const NAMES={sun:['Sun','Sol'],mercury:['Mercury','Mercúrio'],venus:['Venus','Vénus'],earth:['Earth','Terra'],mars:['Mars','Marte'],jupiter:['Jupiter','Júpiter'],saturn:['Saturn','Saturno'],uranus:['Uranus','Úrano'],neptune:['Neptune','Neptuno']};
+const CUM=[];{let acc=0;BODIES.forEach(b=>{acc+=b[3];CUM.push(acc)});CUM[CUM.length-1]=2}
+const TILT_C=BODIES.map(b=>Math.cos(b[4]*DEG)), TILT_S=BODIES.map(b=>Math.sin(b[4]*DEG)), SPIN=new Float32Array(BODIES.length);
+const solarLocal=new Float32Array(COUNT*3), solarBody=new Uint8Array(COUNT), PAN_MAX=BODIES[BODIES.length-1][1];
+function genBody(i,id,R){if(id==='sun')genSun(i,R);else if(id==='jupiter')genJupiter(i,R,.55);else if(id==='saturn')genSaturn(i,R);else genRock(i,R,id)}
+
+function buildModel(name){const a=new Float32Array(COUNT*3);let pal=null;if(name==='jupiter'||name==='saturn'||name==='solar')pal=new Float32Array(COUNT*3);for(let i=0;i<COUNT;i++){let x=0,y=0,z=0,u=rand(i,1),v=rand(i,2),w=rand(i,3),col=null;
 if(name==='heart'){let t=u*TAU, rr=Math.sqrt(v);x=16*Math.pow(Math.sin(t),3);y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);x=x*.105*rr;y=y*.105*rr;z=(w-.5)*.5*(.3+rr)}
 else if(name==='flower'||name==='epiphyllum'){let petals=name==='flower'?8:18, t=u*TAU, r=Math.sqrt(v), petal=Math.cos(petals*t/2);let radial=(name==='flower'?1.1:.72)+.86*Math.max(0,petal);let fold=Math.sin(petals*t/2);x=Math.cos(t)*radial*r;y=Math.sin(t)*radial*r;z=(name==='flower'?.22:.10)*fold*r+(w-.5)*.17; if(v<.08){let q=Math.sqrt(v/.08);x*=q*.2;y*=q*.2;z=.12+q*.35}}
-else if(name==='saturn'){if(i<COUNT*.60){let phi=Math.acos(2*u-1),theta=TAU*v,r=1.05+(.035*(w-.5));x=r*Math.sin(phi)*Math.cos(theta);y=r*Math.cos(phi);z=r*Math.sin(phi)*Math.sin(theta)}else{let t=u*TAU,r=1.48+v*.78;x=r*Math.cos(t);y=(w-.5)*.045;z=r*Math.sin(t);let q=y*Math.cos(.42)-z*Math.sin(.42);z=y*Math.sin(.42)+z*Math.cos(.42);y=q}}
+else if(name==='saturn'){genSaturn(i,1);tiltX(26.7*DEG);x=P.x;y=P.y;z=P.z;col=P.c}
+else if(name==='jupiter'){genJupiter(i,1.4,1);tiltX(3.1*DEG);x=P.x;y=P.y;z=P.z;col=P.c}
+else if(name==='solar'){const f=rand(i,21);let b=0;while(f>CUM[b])b++;const B=BODIES[b];genBody(i,B[0],B[2]);
+ solarBody[i]=b;solarLocal[i*3]=P.x;solarLocal[i*3+1]=P.y;solarLocal[i*3+2]=P.z;col=P.c;
+ tiltX(B[4]*DEG);x=B[1]+P.x;y=P.y;z=P.z}
 else if(name==='fireworks'){let t=u*TAU,phi=Math.acos(2*v-1),r=.1+Math.pow(w,.7)*2.35;x=r*Math.sin(phi)*Math.cos(t);y=r*Math.cos(phi);z=r*Math.sin(phi)*Math.sin(t);let k=Math.floor(u*13),ang=k*TAU/13;x+=.16*Math.cos(ang)*Math.pow(w,5);y+=.16*Math.sin(ang)*Math.pow(w,5)}
 else if(name==='earth'){let phi=Math.acos(2*u-1),t=TAU*v,lat=Math.PI/2-phi,lon=t;let continent=Math.sin(2.8*lon+Math.sin(4*lat))*Math.cos(3.2*lat)+.42*Math.sin(5.3*lon-2*lat);let land=continent>.28;let r=1.3+(land?.018:0)+(w-.5)*.025;x=r*Math.cos(lat)*Math.cos(lon);y=r*Math.sin(lat);z=r*Math.cos(lat)*Math.sin(lon);if(i<220){let ang=TAU*u,rad=.08+v*2.1;x=rad*Math.cos(ang);y=(w-.5)*.018;z=rad*Math.sin(ang)}}
 else if(name==='landscape'){let t=u*TAU, ridge= Math.sin(t*3)*.32+Math.cos(t*5)*.22;let r=.35+v*1.75;x=(u-.5)*4.2;y=-.35+ridge+v*.48;z=(w-.5)*1.2; if(i%5===0)y+=.28*Math.sin(u*18+v*7);}
-a[i*3]=x;a[i*3+1]=y;a[i*3+2]=z;}return a}
+a[i*3]=x;a[i*3+1]=y;a[i*3+2]=z;if(pal&&col){pal[i*3]=col[0];pal[i*3+1]=col[1];pal[i*3+2]=col[2]}}if(pal)palettes[name]=pal;return a}
 for(const [id] of models)positions[id]=buildModel(id);
-let current=new Float32Array(positions.heart), geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(current,3).setUsage(THREE.DynamicDrawUsage));const colors=new Float32Array(COUNT*3);geo.setAttribute('color',new THREE.BufferAttribute(colors,3));const sizes=new Float32Array(COUNT);for(let i=0;i<COUNT;i++)sizes[i]=1.5+rand(i,7)*2.5;geo.setAttribute('aSize',new THREE.BufferAttribute(sizes,1));
-const mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,vertexColors:true,uniforms:{uPixelRatio:{value:renderer.getPixelRatio()},uOpacity:{value:1}},vertexShader:`attribute float aSize; varying vec3 vColor; uniform float uPixelRatio; void main(){vColor=color; vec4 mv=modelViewMatrix*vec4(position,1.0); gl_PointSize=aSize*uPixelRatio*(10.0/-mv.z); gl_Position=projectionMatrix*mv;}`,fragmentShader:`varying vec3 vColor; uniform float uOpacity; void main(){float d=length(gl_PointCoord-0.5); if(d>0.5)discard; float glow=exp(-d*9.0); float core=smoothstep(.5,.08,d); gl_FragColor=vec4(vColor, (glow*.55+core*.85)*uOpacity);}`});const points=new THREE.Points(geo,mat);group.add(points);
-function colorize(hex){let c=new THREE.Color(hex);for(let i=0;i<COUNT;i++){let k=1.0+rand(i,9)*.42;colors[i*3]=c.r*k;colors[i*3+1]=c.g*k;colors[i*3+2]=c.b*k}geo.attributes.color.needsUpdate=true;document.querySelector('#hexLabel').textContent=hex.toUpperCase()}
-models.forEach(([id,label,title,sub,emoji])=>{let b=document.createElement('button');b.className='model'+(id===active?' active':'');b.innerHTML=`<span class="emoji">${emoji}</span>${label}`;b.onclick=()=>selectModel(id);grid.appendChild(b)});
-function selectModel(id){active=id;document.querySelectorAll('.model').forEach((b,i)=>b.classList.toggle('active',models[i][0]===id));let m=models.find(m=>m[0]===id);document.querySelector('#shapeTitle').textContent=m[2];document.querySelector('#shapeSub').textContent=m[3];}
-colorize('#ff6688');
+
+// 每帧更新太阳系：每颗行星绕自己的轴自转，手势缩放以各自中心为准
+// Atualiza o Sistema Solar por frame: cada planeta roda no seu eixo; o gesto abre/fecha cada planeta à volta do seu centro
+function updateSolar(dt,k){const T=positions.solar, n=BODIES.length, cs=new Float32Array(n), sn=new Float32Array(n);
+ for(let b=0;b<n;b++){SPIN[b]+=dt*BODIES[b][5];cs[b]=Math.cos(SPIN[b]);sn[b]=Math.sin(SPIN[b])}
+ for(let i=0;i<COUNT;i++){const j=i*3,b=solarBody[i],lx=solarLocal[j]*k,ly=solarLocal[j+1]*k,lz=solarLocal[j+2]*k;
+  const x1=lx*cs[b]+lz*sn[b], z1=-lx*sn[b]+lz*cs[b];
+  T[j]=BODIES[b][1]+x1;T[j+1]=ly*TILT_C[b]-z1*TILT_S[b];T[j+2]=ly*TILT_S[b]+z1*TILT_C[b]}}
+
+let current=new Float32Array(positions.heart), geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(current,3).setUsage(THREE.DynamicDrawUsage));const colors=new Float32Array(COUNT*3),targetColors=new Float32Array(COUNT*3);geo.setAttribute('color',new THREE.BufferAttribute(colors,3).setUsage(THREE.DynamicDrawUsage));const sizes=new Float32Array(COUNT);for(let i=0;i<COUNT;i++)sizes[i]=1.5+rand(i,7)*2.5;geo.setAttribute('aSize',new THREE.BufferAttribute(sizes,1));geo.setDrawRange(0,START);
+// uDepth：行星模型启用"远暗近亮" / profundidade: lado de trás mais escuro nos planetas
+const mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,vertexColors:true,uniforms:{uPixelRatio:{value:renderer.getPixelRatio()},uOpacity:{value:1},uDepth:{value:0}},vertexShader:`attribute float aSize; varying vec3 vColor; varying float vFade; uniform float uPixelRatio; uniform float uDepth; void main(){vColor=color; vec4 mv=modelViewMatrix*vec4(position,1.0); float d=9.5+mv.z; vFade=mix(1.0,clamp(0.62+d*0.34,0.2,1.08),uDepth); gl_PointSize=aSize*uPixelRatio*(10.0/-mv.z); gl_Position=projectionMatrix*mv;}`,fragmentShader:`varying vec3 vColor; varying float vFade; uniform float uOpacity; void main(){float d=length(gl_PointCoord-0.5); if(d>0.5)discard; float glow=exp(-d*9.0); float core=smoothstep(.5,.08,d); gl_FragColor=vec4(vColor, (glow*.55+core*.85)*uOpacity*vFade);}`});const points=new THREE.Points(geo,mat);points.frustumCulled=false;group.add(points); // 太阳系模式会移动整组粒子，关闭视锥剔除 / evita que desapareçam ao mover a fila
+
+/* ===================== 颜色 / Cores ===================== */
+let userHex='#ff6688', natural=true;
+function refreshColors(){const c=new THREE.Color(userHex), pal=palettes[active];
+ for(let i=0;i<COUNT;i++){const j=i*3;
+  if(pal){if(natural){const k=.93+rand(i,9)*.14;targetColors[j]=pal[j]*k;targetColors[j+1]=pal[j+1]*k;targetColors[j+2]=pal[j+2]*k}
+   else{const lum=(.2126*pal[j]+.7152*pal[j+1]+.0722*pal[j+2])*2.3;targetColors[j]=c.r*lum;targetColors[j+1]=c.g*lum;targetColors[j+2]=c.b*lum}}
+  else{let k=1.0+rand(i,9)*.42;targetColors[j]=c.r*k;targetColors[j+1]=c.g*k;targetColors[j+2]=c.b*k}}
+ document.querySelector('#hexLabel').textContent=(pal&&natural)?'NATURAL':userHex.toUpperCase();
+ document.querySelector('#naturalBtn').style.display=(pal&&!natural)?'inline-block':'none'}
+function colorize(hex){userHex=hex;if(palettes[active])natural=false;refreshColors()}
+
+models.forEach(([id,label,title,sub,emoji])=>{let b=document.createElement('button');b.className='model'+(id===active?' active':'')+(id==='solar'?' wide':'');b.innerHTML=`<span class="emoji">${emoji}</span>${label}`;b.onclick=()=>selectModel(id);grid.appendChild(b)});
+
+/* ===================== 太阳系导航 / Navegação no Sistema Solar ===================== */
+let solarBlend=0, panX=9.4, panTarget=9.4, focus=-1, scaleNow=1, infoLang='en';
+const bar=document.querySelector('#planetBar');
+BODIES.forEach((B,b)=>{const el=document.createElement('button');el.className='chip';el.innerHTML=`<i style="background:${B[6]}"></i><span></span>`;el.onclick=()=>focusTo(b);bar.appendChild(el)});
+const L=()=>infoLang==='en'?0:1;
+function focusTo(b){b=Math.max(0,Math.min(BODIES.length-1,b));panTarget=BODIES[b][1]}
+function nearest(x){let best=0;BODIES.forEach((B,b)=>{if(Math.abs(B[1]-x)<Math.abs(BODIES[best][1]-x))best=b});return best}
+function updateSolarUI(){bar.querySelectorAll('.chip').forEach((el,b)=>{el.classList.toggle('on',b===focus);el.querySelector('span').textContent=NAMES[BODIES[b][0]][L()]});
+ if(active==='solar'&&focus>=0)document.querySelector('#shapeSub').textContent=`SOLAR SYSTEM · ${NAMES[BODIES[focus][0]][0].toUpperCase()}`}
+
+function selectModel(id){const was=active;active=id;document.querySelectorAll('.model').forEach((b,i)=>b.classList.toggle('active',models[i][0]===id));let m=models.find(m=>m[0]===id);document.querySelector('#shapeTitle').textContent=m[2];document.querySelector('#shapeSub').textContent=m[3];natural=true;refreshColors();
+ if(id==='solar'&&was!=='solar'){zoom=.55;panTarget=9.4;focus=-1;bar.classList.add('show');toast(infoLang==='en'?'Drag or ← → to travel · scroll or pinch to zoom · tap a planet below':'Arrasta ou ← → para viajar · roda ou pinça para zoom · toca num planeta em baixo')}
+ if(id!=='solar'&&was==='solar'){zoom=1;bar.classList.remove('show')}
+ renderInfo()}
+
+/* ===================== 信息卡 / Cartão de informação ===================== */
+function renderInfo(){updateChatCtx();const card=document.querySelector('#infoCard'), key=active==='solar'?BODIES[focus]?.[0]:(active==='jupiter'||active==='saturn')?active:null, d=INFO[key]?.[infoLang];
+ if(!d){card.classList.remove('show');return}
+ document.querySelector('#infoName').textContent=d.name;
+ document.querySelector('#infoFacts').innerHTML=d.rows.map(([k,v])=>`<div class="fact"><span>${k}</span><b>${v}</b></div>`).join('');
+ document.querySelector('#infoNote').textContent=d.note;
+ document.querySelector('#naturalBtn').textContent=infoLang==='en'?'↺ Real colors':'↺ Cores reais';
+ document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===infoLang));
+ card.classList.remove('show');void card.offsetWidth;card.classList.add('show')}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{infoLang=b.dataset.lang;renderInfo();updateSolarUI();renderChatChrome()});
+document.querySelector('#naturalBtn').onclick=()=>{natural=true;refreshColors()};
+
+
+/* ===================== AI 太空向导 / Guia espacial com IA (Claude) =====================
+   O browser só fala com /api/chat no nosso servidor; a chave da API fica no servidor (.env ou Vercel).
+   Para trocar PT por ES: acrescentar "es" aqui e no INFO, e mudar o botão PT para ES no HTML. */
+const UI={
+ en:{btn:'Ask Stelar',title:'Ask Stelar · AI space guide',ctx:'Talking about',general:'the Solar System',hello:n=>`Hi! I'm Stelar, your space guide. Ask me anything about ${n}.`,now:n=>`Now: ${n}`,ph:'Ask a question…',
+     sugg:['Tell me a fun fact','Could humans live there?','How did it form?'],
+     err:{rate:'Too many questions at once. Wait a few seconds and try again.',config:'The chat is not set up yet: the server has no API key.',offline:'The chat needs the Stelar server. Run "npm start" or open the online version.',busy:'The AI is busy right now. Please try again.',bad:'Something went wrong with that message. Please try again.'}},
+ pt:{btn:'Pergunta ao Stelar',title:'Pergunta ao Stelar · guia espacial IA',ctx:'A falar de',general:'o Sistema Solar',hello:n=>`Olá! Sou o Stelar, o teu guia espacial. Pergunta-me o que quiseres sobre ${n}.`,now:n=>`Agora: ${n}`,ph:'Escreve uma pergunta…',
+     sugg:['Conta-me uma curiosidade','Os humanos podiam viver lá?','Como se formou?'],
+     err:{rate:'Demasiadas perguntas seguidas. Espera uns segundos e tenta outra vez.',config:'O chat ainda não está configurado: falta a chave da API no servidor.',offline:'O chat precisa do servidor Stelar. Corre "npm start" ou abre a versão online.',busy:'A IA está ocupada agora. Tenta outra vez.',bad:'Algo correu mal com essa mensagem. Tenta outra vez.'}}
+};
+const T=()=>UI[infoLang]||UI.en;
+const chatPanel=document.querySelector('#chatPanel'), chatLog=document.querySelector('#chatLog'), chatInput=document.querySelector('#chatInput'), chatSend=document.querySelector('#chatSend');
+let chatMsgs=[], chatBusy=false, chatKeyNow=null;
+function chatKey(){return active==='solar'?(BODIES[focus]?.[0]||'solar'):(active==='jupiter'||active==='saturn')?active:'solar'}
+function chatName(k){return k==='solar'?T().general:NAMES[k][L()]}
+function chatFacts(k){const d=INFO[k]?.en;if(!d)return 'Bodies in order from the Sun: Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. In this app, sizes and distances are compressed.';return d.name+'\n'+d.rows.map(r=>r[0]+': '+r[1]).join('\n')+'\n'+d.note}
+function addMsg(cls,text){const el=document.createElement('div');el.className='msg '+cls;el.textContent=text;chatLog.appendChild(el);chatLog.scrollTop=chatLog.scrollHeight;return el}
+function renderChatChrome(){const t=T();document.querySelector('#chatBtnLabel').textContent=t.btn;document.querySelector('#chatTitle').textContent=t.title;chatInput.placeholder=t.ph;
+ document.querySelector('#chatCtx').textContent=t.ctx+' · '+chatName(chatKey());
+ const sg=document.querySelector('#chatSugg');sg.innerHTML='';t.sugg.forEach(q=>{const b=document.createElement('button');b.type='button';b.textContent=q;b.onclick=()=>askStelar(q);sg.appendChild(b)})}
+function updateChatCtx(){const k=chatKey();if(k===chatKeyNow)return;const had=chatKeyNow!==null;chatKeyNow=k;
+ if(had&&chatLog.childElementCount)addMsg('note',T().now(chatName(k)));renderChatChrome()}
+function openChat(){chatPanel.classList.add('show');updateChatCtx();renderChatChrome();if(!chatLog.childElementCount)addMsg('bot',T().hello(chatName(chatKey())));setTimeout(()=>chatInput.focus(),50)}
+document.querySelector('#chatBtn').onclick=()=>chatPanel.classList.contains('show')?chatPanel.classList.remove('show'):openChat();
+document.querySelector('#chatClose').onclick=()=>chatPanel.classList.remove('show');
+document.querySelector('#chatForm').addEventListener('submit',e=>{e.preventDefault();askStelar(chatInput.value)});
+async function askStelar(text){text=String(text||'').trim().slice(0,500);if(!text||chatBusy)return;
+ chatBusy=true;chatSend.disabled=true;chatInput.value='';addMsg('me',text);chatMsgs.push({role:'user',content:text});
+ const wait=addMsg('bot','');wait.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';
+ const k=chatKey();let err=null;
+ try{const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({planet:k,lang:infoLang,facts:chatFacts(k),messages:chatMsgs.slice(-8)})});
+  let data={};try{data=await r.json()}catch{err=location.protocol==='file:'||r.status===404||r.status===501?'offline':'busy'}
+  if(!err&&r.ok&&data.reply){wait.textContent=data.reply;chatMsgs.push({role:'assistant',content:data.reply})}
+  else err=err||data.error||'busy';
+ }catch(e){err='offline'}
+ if(err){wait.remove();chatMsgs.pop();addMsg('err',T().err[err]||T().err.busy)}
+ chatLog.scrollTop=chatLog.scrollHeight;chatBusy=false;chatSend.disabled=false}
+renderChatChrome();
+refreshColors();colors.set(targetColors);geo.attributes.color.needsUpdate=true;
+
 const video=document.querySelector('#video');let landmarker=null,camStream=null,detectBusy=false;
 async function startCamera(){const btn=document.querySelector('#cameraBtn');btn.disabled=true;btn.textContent='正在启动…';try{camStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:640},height:{ideal:480}},audio:false});video.srcObject=camStream;await video.play();document.querySelector('#camPlaceholder').style.display='none';document.querySelector('#camState').textContent='加载模型…';const vision=await import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.20');const fileset=await vision.FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.20/wasm');landmarker=await vision.HandLandmarker.createFromOptions(fileset,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',delegate:'GPU'},runningMode:'VIDEO',numHands:1,minHandDetectionConfidence:.55,minHandPresenceConfidence:.5,minTrackingConfidence:.5});document.querySelector('#camState').textContent='已连接';document.querySelector('#liveDot').classList.add('on');document.querySelector('#liveText').textContent='手势追踪中';btn.textContent='关闭摄像头';btn.disabled=false;btn.onclick=stopCamera;toast('摄像头已开启，试着张开或握紧手掌');}catch(e){console.error(e);if(camStream)camStream.getTracks().forEach(t=>t.stop());camStream=null;document.querySelector('#camState').textContent='连接失败';btn.disabled=false;btn.textContent='重试摄像头';toast(e.name==='NotAllowedError'?'请允许浏览器访问摄像头': '摄像头启动失败，请使用 localhost 或 HTTPS 打开页面');}}
 function stopCamera(){if(camStream)camStream.getTracks().forEach(t=>t.stop());camStream=null;landmarker=null;video.srcObject=null;document.querySelector('#camPlaceholder').style.display='grid';document.querySelector('#camState').textContent='未连接';document.querySelector('#liveDot').classList.remove('on');document.querySelector('#liveText').textContent='待机中';let b=document.querySelector('#cameraBtn');b.textContent='启用摄像头';b.onclick=startCamera;}
 document.querySelector('#cameraBtn').onclick=startCamera;
-function gestureTick(){if(!landmarker||video.readyState<2||detectBusy)return;detectBusy=true;try{const out=landmarker.detectForVideo(video,performance.now()),lm=out.landmarks?.[0];if(lm){handSeen=performance.now();const dist=(a,b)=>Math.hypot(lm[a].x-lm[b].x,lm[a].y-lm[b].y);let palm=Math.max(.05,dist(0,9));let openness=[8,12,16,20].reduce((s,n)=>s+dist(n,0),0)/4/palm;gestureScale=THREE.MathUtils.clamp(.58+(openness-.9)*.52,.52,1.58);handX=1-lm[9].x;handY=lm[9].y;const indexUp=lm[8].y<lm[6].y-.025,middleDown=lm[12].y>lm[10].y,ringDown=lm[16].y>lm[14].y,pinkyDown=lm[20].y>lm[18].y;oneFinger=indexUp&&middleDown&&ringDown&&pinkyDown;let pinch=dist(4,8)/palm;zoom=THREE.MathUtils.lerp(zoom,THREE.MathUtils.clamp(.76+pinch*1.65,.7,1.55),.18);spread=THREE.MathUtils.lerp(spread,THREE.MathUtils.clamp((openness-1)*.27,0,.5),.12);document.querySelector('#liveText').textContent=oneFinger?'单指旋转':openness>1.6?'手掌扩散':'手掌聚合';}else{oneFinger=false}}catch(e){console.warn(e)}finally{detectBusy=false}}
-function toast(s){let t=document.querySelector('#toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400)}
+function gestureTick(){if(!landmarker||video.readyState<2||detectBusy)return;detectBusy=true;try{const out=landmarker.detectForVideo(video,performance.now()),lm=out.landmarks?.[0];if(lm){handSeen=performance.now();const dist=(a,b)=>Math.hypot(lm[a].x-lm[b].x,lm[a].y-lm[b].y);let palm=Math.max(.05,dist(0,9));let openness=[8,12,16,20].reduce((s,n)=>s+dist(n,0),0)/4/palm;gestureScale=THREE.MathUtils.clamp(.58+(openness-.9)*.52,.52,1.58);handX=1-lm[9].x;handY=lm[9].y;const indexUp=lm[8].y<lm[6].y-.025,middleDown=lm[12].y>lm[10].y,ringDown=lm[16].y>lm[14].y,pinkyDown=lm[20].y>lm[18].y;oneFinger=indexUp&&middleDown&&ringDown&&pinkyDown;let pinch=dist(4,8)/palm;
+ const solar=active==='solar';
+ // 太阳系模式：捏合缩放范围更大，单指左右移动＝沿轨道"飞行" / no Sistema Solar: zoom mais amplo e o dedo indicador desliza pela fila
+ zoom=THREE.MathUtils.lerp(zoom,solar?THREE.MathUtils.clamp(.32+pinch*1.9,.32,3):THREE.MathUtils.clamp(.76+pinch*1.65,.7,1.55),.18);
+ if(solar&&oneFinger)panTarget=cl((handX-.15)/.7)*PAN_MAX;
+ spread=THREE.MathUtils.lerp(spread,THREE.MathUtils.clamp((openness-1)*.27,0,.5),.12);document.querySelector('#liveText').textContent=oneFinger?(solar?'单指平移':'单指旋转'):openness>1.6?'手掌扩散':'手掌聚合';}else{oneFinger=false}}catch(e){console.warn(e)}finally{detectBusy=false}}
+function toast(s){let t=document.querySelector('#toast');t.textContent=s;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),s.length>40?4200:2400)}
 document.querySelector('#colorPicker').addEventListener('input',e=>colorize(e.target.value));document.querySelector('#density').addEventListener('input',e=>{document.querySelector('#densityVal').textContent=Number(e.target.value).toLocaleString('en-US');let n=+e.target.value;points.geometry.setDrawRange(0,n)});
-document.querySelector('#fullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();window.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='f')document.querySelector('#fullscreen').click()});
-renderer.domElement.addEventListener('pointerdown',e=>{drag=true;lastX=e.clientX;lastY=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)});renderer.domElement.addEventListener('pointerup',()=>drag=false);renderer.domElement.addEventListener('pointermove',e=>{if(drag){rotY+=(e.clientX-lastX)*.006;rotX+=(e.clientY-lastY)*.006;lastX=e.clientX;lastY=e.clientY}});renderer.domElement.addEventListener('wheel',e=>{zoom=THREE.MathUtils.clamp(zoom-e.deltaY*.001,.55,1.8)},{passive:true});
-let prev=performance.now();function animate(now){requestAnimationFrame(animate);gestureTick();let dt=Math.min(.04,(now-prev)/1000);prev=now;let target=positions[active],p=geo.attributes.position.array;let influence=performance.now()-handSeen<5000?gestureScale:1;let smooth=1-Math.exp(-dt*4);for(let i=0;i<COUNT;i++){let j=i*3;let jitter=(Math.sin(now*.0015+i*1.73)*.012+Math.cos(now*.0011+i*.51)*.01);let spreadFactor=1+spread;for(let c=0;c<3;c++){let v=target[j+c]*influence*spreadFactor;if(c===2)v+=jitter;p[j+c]+=(v-p[j+c])*smooth}}geo.attributes.position.needsUpdate=true;group.rotation.y=rotY+(oneFinger?(handX-.5)*2.3:Math.sin(now*.00018)*.12);group.rotation.x=rotX+(oneFinger?(handY-.5)*1.0:Math.sin(now*.00013)*.05);let s=zoom*(performance.now()-handSeen<5000?1:1);group.scale.setScalar(s);requestAnimationFrame;renderer.render(scene,camera)}requestAnimationFrame(animate);
+document.querySelector('#fullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();
+window.addEventListener('keydown',e=>{if(e.target.closest?.('input,textarea'))return;if(e.key.toLowerCase()==='f')document.querySelector('#fullscreen').click();
+ if(active==='solar'){const f=nearest(panTarget);if(e.key==='ArrowRight')focusTo(f+1);if(e.key==='ArrowLeft')focusTo(f-1)}});
+renderer.domElement.addEventListener('pointerdown',e=>{drag=true;lastX=e.clientX;lastY=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)});
+renderer.domElement.addEventListener('pointerup',()=>{drag=false;if(active==='solar')focusTo(nearest(panTarget))});
+renderer.domElement.addEventListener('pointermove',e=>{if(drag){if(active==='solar'){panTarget=Math.max(-.5,Math.min(PAN_MAX+.5,panTarget-(e.clientX-lastX)*.03/scaleNow))}else{rotY+=(e.clientX-lastX)*.006;rotX+=(e.clientY-lastY)*.006}lastX=e.clientX;lastY=e.clientY}});
+renderer.domElement.addEventListener('wheel',e=>{const solar=active==='solar';zoom=THREE.MathUtils.clamp(zoom-e.deltaY*.001*(solar?1.6:1),solar?.3:.55,solar?3.2:1.8)},{passive:true});
+
+let prev=performance.now(),spinAng=0;function animate(now){requestAnimationFrame(animate);gestureTick();let dt=Math.min(.04,(now-prev)/1000);prev=now;
+ const solar=active==='solar';let influence=performance.now()-handSeen<5000?gestureScale:1;let spreadFactor=1+spread;
+ if(solar)updateSolar(dt,influence*spreadFactor);
+ const mult=solar?1:influence*spreadFactor;
+ let target=positions[active],p=geo.attributes.position.array;let smooth=1-Math.exp(-dt*4);for(let i=0;i<COUNT;i++){let j=i*3;let jitter=(Math.sin(now*.0015+i*1.73)*.012+Math.cos(now*.0011+i*.51)*.01);for(let c=0;c<3;c++){let v=target[j+c]*mult;if(c===2)v+=jitter;p[j+c]+=(v-p[j+c])*smooth;colors[j+c]+=(targetColors[j+c]-colors[j+c])*smooth}}geo.attributes.position.needsUpdate=true;geo.attributes.color.needsUpdate=true;
+ const planet=palettes[active]?1:0;mat.uniforms.uDepth.value+=(planet-mat.uniforms.uDepth.value)*smooth;
+ spinAng=(spinAng+dt*.12*(solar?0:mat.uniforms.uDepth.value))%TAU; // 木星/土星单独显示时缓慢自转 / rotação lenta de Júpiter/Saturno sozinhos
+ solarBlend+=((solar?1:0)-solarBlend)*smooth;panX+=(panTarget-panX)*smooth;
+ if(solar){const f=nearest(panX);if(f!==focus){focus=f;renderInfo();updateSolarUI()}}
+ const ny=wrapPI(rotY+spinAng+(oneFinger&&!solar?(handX-.5)*2.3:Math.sin(now*.00018)*.12)), nx=rotX+(oneFinger&&!solar?(handY-.5)*1.0:Math.sin(now*.00013)*.05);
+ const sy=Math.sin(now*.00018)*.03, sx=.2+Math.sin(now*.00013)*.03; // 太阳系：略微俯视 / Sistema Solar: vista ligeiramente de cima
+ group.rotation.y=ny+(sy-ny)*solarBlend;group.rotation.x=nx+(sx-nx)*solarBlend;
+ scaleNow+=(zoom-scaleNow)*Math.min(1,smooth*1.6);group.scale.setScalar(scaleNow);
+ group.position.x=-panX*scaleNow*solarBlend;
+ renderer.render(scene,camera)}requestAnimationFrame(animate);
 window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);mat.uniforms.uPixelRatio.value=renderer.getPixelRatio()});
 </script></body></html>
