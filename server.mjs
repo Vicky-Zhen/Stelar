@@ -9,6 +9,7 @@ import { chat, rateLimited } from './api/_chat-core.js';
 
 const dir = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT) || 8000;
+const neoCache = new Map();
 
 // Load .env without any extra packages
 try {
@@ -36,6 +37,36 @@ const server = http.createServer(async (req, res) => {
     try { body = JSON.parse(raw); } catch {}
     const r = await chat(body);
     send(res, r.status, r.json);
+    return;
+  }
+
+    // NASA NeoWs proxy: the key stays on the server, answers are cached for 1 hour
+  if (url.pathname === '/api/neo') {
+    if (req.method !== 'GET') { res.writeHead(405).end(); return; }
+    const kind = url.searchParams.get('kind') || 'feed';
+    let target;
+    if (kind === 'feed') {
+      const today = new Date().toISOString().slice(0, 10);
+      const start = url.searchParams.get('start') || today;
+      const end = url.searchParams.get('end') || start;
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(start) || !/^\d{4}-\d{2}-\d{2}$/.test(end)) { send(res, 400, { error: 'bad date' }); return; }
+      target = `feed?start_date=${start}&end_date=${end}`;
+    } else if (kind === 'detail') {
+      const id = url.searchParams.get('id') || '';
+      if (!/^\d{1,10}$/.test(id)) { send(res, 400, { error: 'bad id' }); return; }
+      target = `neo/${id}?`;
+    } else { send(res, 400, { error: 'bad kind' }); return; }
+
+    const hit = neoCache.get(target);
+    if (hit && Date.now() - hit.t < 3_600_000) { send(res, 200, hit.data); return; }
+    try {
+      const key = process.env.NASA_API_KEY || 'DEMO_KEY';
+      const r = await fetch(`https://api.nasa.gov/neo/rest/v1/${target}${target.includes('?') ? '&' : '?'}api_key=${key}`);
+      if (!r.ok) { send(res, r.status, { error: 'nasa', status: r.status }); return; }
+      const data = await r.json();
+      neoCache.set(target, { t: Date.now(), data });
+      send(res, 200, data);
+    } catch { send(res, 502, { error: 'network' }); }
     return;
   }
 
