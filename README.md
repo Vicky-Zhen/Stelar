@@ -1,6 +1,7 @@
 # ORBIT · Solar System Explorer / 太阳系交互探索
 
 https://stelar-three.vercel.app/
+
 An interactive 3D Solar System for **PCC Hack 1 (theme: Space)**.
 The Sun and the eight planets are shown at their **true relative sizes**, and you can explore them
 with the mouse, your **hands** (webcam) or your **voice**, and ask **Stelar**, an AI space guide
